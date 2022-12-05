@@ -1,0 +1,4 @@
+{
+    "Function" : "TransferFromByPartition",
+    "Args" : [A.address, B.address, partition.address, value]
+}
