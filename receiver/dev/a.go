@@ -6,4 +6,7 @@ type Dev struct {
 
 func D() {
 	C()
+
+	aq := &Dev{Name: 100}
+	aq.B()
 }

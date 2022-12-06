@@ -5,7 +5,7 @@ import "fmt"
 func (q *Dev) B() string {
 
 	fmt.Println(q)
-	q.Name = 3
+	q.Name -= 3
 	fmt.Println(q)
 
 	// q.Name

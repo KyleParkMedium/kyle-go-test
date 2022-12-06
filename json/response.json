@@ -1,4 +1,6 @@
+Chaincode invoke successful. 
 {
-    "status" : "200",
-    "payload" : "",
+    "result" : {
+        "status" : 200,
+    }
 }
