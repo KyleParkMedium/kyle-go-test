@@ -2,6 +2,7 @@ package main
 
 import (
 	"concurrency/testcode"
+	wg "concurrency/waitgroup"
 	"fmt"
 )
 
@@ -16,4 +17,10 @@ func main() {
 	}
 
 	testcode.Q()
+
+	// wg.WaitRange2()
+	// wg.Memory()
+	// wg.Wait3()
+	// wg.RWMutex()
+	wg.Cond()
 }

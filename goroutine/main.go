@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	// dev.Start()
-	dev.WaitGroup()
+	dev.Start()
+	// dev.WaitGroup()
 }
