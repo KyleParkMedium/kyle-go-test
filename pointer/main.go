@@ -2,28 +2,31 @@ package main
 
 import "fmt"
 
-type A struct {
-	Name int
-	Age  int
+func A(numA int) {
+
+	numA += 1
+
+	fmt.Println(numA)
+}
+
+func B(numB *int) {
+
+	*numB += 1
+
+	fmt.Println(&numB)
+	fmt.Println(*numB)
+	fmt.Println(numB)
 }
 
 func main() {
 
-	a := 3
-	b := &a
-	var c *int
-	c = &a
+	numA := 5
+	fmt.Println(numA)
+	numB := 5
 
-	var d *A = &A{1, 2}
-	var e A = A{3, 4}
+	A(numA)
+	B(&numB)
 
-	fmt.Println(a)
-	fmt.Println(b)
-	fmt.Println(c)
-	fmt.Println(*c)
-	fmt.Println(&c)
-	fmt.Println(d)
-	fmt.Println(&d)
-	fmt.Println(e)
-	fmt.Println(&e)
+	fmt.Println(numA)
+	fmt.Println(numB)
 }
