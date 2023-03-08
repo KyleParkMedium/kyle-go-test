@@ -1,11 +1,12 @@
 package main
 
 import (
-	"os/path"
-	"os/script"
+	"os/file"
 )
 
 func main() {
-	path.Path()
-	script.Exec()
+	// path.Path()
+	// script.Exec()
+	file.File()
+
 }

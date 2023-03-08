@@ -1,9 +1,22 @@
 package main
 
-import (
-	"map/map2"
-)
+import "fmt"
+
+type A struct {
+	Name string
+}
 
 func main() {
-	map2.Map3()
+
+	a := make(map[string]interface{})
+
+	fmt.Println(a)
+	fmt.Println(len(a))
+
+	// map2.Map3()
+
+	// convert.Convert()
+
+	// a := A{Name: "Dativ"}
+	// convert.Input(a)
 }
