@@ -1,4 +1,4 @@
-package file
+package file2
 
 import (
 	crand "crypto/rand"
@@ -24,40 +24,64 @@ type Mock struct {
 	Data []Req
 }
 
+type Mock2 struct {
+	Data map[string]string
+}
+
 func File() {
 
-	// 파일 열기
-	file, err := os.Create("wallet.gob")
-	file2, err := os.Create("wallet.json")
+	file3, err := os.Create("distribute.json")
 	if err != nil {
 		panic(err)
 	}
-	defer file.Close()
-
-	// JSON 인코더 생성
-	encoder := gob.NewEncoder(file)
-	encoder2 := json.NewEncoder(file2)
+	encoder3 := json.NewEncoder(file3)
 
 	// 랜덤 시드를 초기화합니다.
 	rand.Seed(time.Now().UnixNano())
 
 	mock := Mock{}
-	mock.Data = make([]Req, 10000)
+	mock.Data = make([]Req, 100)
 
-	for i := 0; i < 10000; i++ {
+	mock2 := Mock2{}
+	mock2.Data = make(map[string]string, 100)
 
-		req := Req{}
-		req.TokenWalletId = GenerateUniqueID(63)
-		req.Role = "personal"
-		// 랜덤 계좌번호를 생성하고 출력합니다.
-		req.AccountNumber = generateAccountNumber()
+	for j := 2; j <= 101; j++ {
 
-		mock.Data[i] = req
+		m := fmt.Sprintf("wallet%v.gob", j-1)
+		x := fmt.Sprintf("wallet%v.json", j-1)
+		// 파일 열기
+		file, err := os.Create(m)
+		file2, err := os.Create(x)
+		if err != nil {
+			panic(err)
+		}
+		defer file.Close()
+
+		// JSON 인코더 생성
+		encoder := gob.NewEncoder(file)
+		encoder2 := json.NewEncoder(file2)
+
+		for i := 0; i < 100; i++ {
+
+			req := Req{}
+			req.TokenWalletId = GenerateUniqueID(j)
+			req.Role = "ipo"
+			// 랜덤 계좌번호를 생성하고 출력합니다.
+			req.AccountNumber = generateAccountNumber()
+
+			mock.Data[i] = req
+			mock2.Data[req.TokenWalletId] = "5000"
+		}
+
+		// 구조체 파일에 쓰기
+		err = encoder.Encode(mock)
+		err = encoder2.Encode(mock)
+		if err != nil {
+			panic(err)
+		}
 	}
 
-	// 구조체 파일에 쓰기
-	err = encoder.Encode(mock)
-	err = encoder2.Encode(mock)
+	err = encoder3.Encode(mock2)
 	if err != nil {
 		panic(err)
 	}

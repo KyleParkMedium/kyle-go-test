@@ -1,12 +1,10 @@
 package main
 
-import (
-	"os/file"
-)
+import "os2/file2"
 
 func main() {
 	// path.Path()
 	// script.Exec()
-	file.File()
-
+	file2.File()
+	file2.Read()
 }

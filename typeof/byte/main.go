@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 )
 
@@ -12,18 +11,22 @@ type A struct {
 
 func main() {
 
-	a := A{1, 2}
+	var data [1]byte
+	data[0] = 1111
 
-	b, err := json.Marshal(a)
+	fmt.Println(data)
+	// a := A{1, 2}
 
-	fmt.Println(err)
-	fmt.Println(b)
+	// b, err := json.Marshal(a)
 
-	aa := A{}
+	// fmt.Println(err)
+	// fmt.Println(b)
 
-	// var aa interface{}
-	// aa := make(interface{})
+	// aa := A{}
 
-	err = json.Unmarshal(b, &aa)
-	fmt.Println(aa)
+	// // var aa interface{}
+	// // aa := make(interface{})
+
+	// err = json.Unmarshal(b, &aa)
+	// fmt.Println(aa)
 }

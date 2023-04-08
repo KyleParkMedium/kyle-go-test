@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fabric-pod
+spec:
+  containers:
+    - name: peer1
+      image: fabric-peer:2.2.6
+      volumeMounts:
+        - name: fabric-config-volume
+          mountPath: /etc/hyperledger/fabric
+      #   - name: tls-certs-volume
+      #     mountPath: /etc/hyperledger/fabric/tls
+      # readOnly: true
+      # resources:
+      #   limits:
+      #     memory: "128Mi"
+      #     cpu: "500m"
+      # ports:
+      #   - containerPort: <Port>
+
+  volumes:
+    - name: fabric-config-volume
+      configMap:
+        name: fabric-config
