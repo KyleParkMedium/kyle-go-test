@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"crypto2/hash2"
+	"crypto2/ecdsa2"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
@@ -59,6 +59,6 @@ func dev() {
 }
 
 func main() {
-	// ecdsa2.EC()
-	hash2.Hash()
+	ecdsa2.EC()
+	// hash2.Hash()
 }

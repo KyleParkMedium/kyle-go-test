@@ -1,15 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 
-	var a int64
+	// v := "0x1c"
+	v := "1c"
 
-	a = 1
+	num, err := strconv.ParseUint(v, 16, 32)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(num)
+	}
 
-	fmt.Println(a)
+	v8 := uint8(num)
+	fmt.Println(v8)
 
-	fmt.Println(a / 5000)
+	// var a int64
+
+	// a = 1
+
+	// fmt.Println(a)
+
+	// fmt.Println(a / 5000)
 
 }
